@@ -27,7 +27,7 @@ namespace Servicebus.http
             {
                 if (!ValidateRequired()) return;
                 var sasToken = GenerateSasToken(GetResourceUrl(), txtAccessKeyName.Text, txtAccessKey.Text);
-                Send(sasToken);
+                SendMessage(sasToken);
             }
             catch (Exception ex)
             {
@@ -62,11 +62,11 @@ namespace Servicebus.http
             return sasToken;
         }
 
-        private void Send(string sasToken)
+        private void SendMessage(string sasToken)
         {
             using (var client = new HttpClient())
             {
-                var content = string.IsNullOrEmpty(mmMessage.Text) ? null : new StringContent(mmMessage.Text, Encoding.UTF8, "application/json");
+                var content = string.IsNullOrEmpty(mmMessage.Text) ? null : new StringContent(mmMessage.Text, Encoding.UTF8, GetMessageFormat());
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add("Authorization", sasToken);
                 var result = client.PostAsync(GetResourceUrl(), content).Result;
@@ -79,6 +79,17 @@ namespace Servicebus.http
                                               $"{result.RequestMessage}");
                 }
             }
+        }
+
+        private string GetMessageFormat()
+        {
+            if (rbFormatJson.Checked)
+                return "application/json";
+            if (rbFormatXml.Checked)
+                return "text/xml";
+            if (rbFormatText.Checked)
+                return "text/plain";
+            return null;
         }
 
         private bool ValidateRequired()
@@ -110,6 +121,16 @@ namespace Servicebus.http
         {
             var sInfo = new ProcessStartInfo("https://github.com/meciasbueno/servicebus-httprequest");
             Process.Start(sInfo);
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            rbFormatJson.Checked = true;
+        }
+
+        private void btLoadFromConnectionString_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
