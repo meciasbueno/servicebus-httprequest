@@ -66,6 +66,9 @@ namespace Servicebus.http
         {
             using (var client = new HttpClient())
             {
+                if (ckIgnoreSSL.Checked)
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => { return true; };
+
                 var content = string.IsNullOrEmpty(mmMessage.Text) ? null : new StringContent(mmMessage.Text, Encoding.UTF8, GetMessageFormat());
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add("Authorization", sasToken);

@@ -46,6 +46,7 @@
             this.rbFormatText = new System.Windows.Forms.RadioButton();
             this.rbFormatJson = new System.Windows.Forms.RadioButton();
             this.btLoadFromConnectionString = new System.Windows.Forms.Button();
+            this.ckIgnoreSSL = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +158,7 @@
             this.panel1.Controls.Add(this.rbFormatText);
             this.panel1.Controls.Add(this.rbFormatJson);
             this.panel1.Location = new System.Drawing.Point(67, 200);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(174, 18);
             this.panel1.TabIndex = 15;
@@ -166,7 +167,7 @@
             // 
             this.rbFormatXml.AutoSize = true;
             this.rbFormatXml.Location = new System.Drawing.Point(93, 2);
-            this.rbFormatXml.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbFormatXml.Margin = new System.Windows.Forms.Padding(2);
             this.rbFormatXml.Name = "rbFormatXml";
             this.rbFormatXml.Size = new System.Drawing.Size(42, 17);
             this.rbFormatXml.TabIndex = 21;
@@ -178,7 +179,7 @@
             // 
             this.rbFormatText.AutoSize = true;
             this.rbFormatText.Location = new System.Drawing.Point(47, 2);
-            this.rbFormatText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbFormatText.Margin = new System.Windows.Forms.Padding(2);
             this.rbFormatText.Name = "rbFormatText";
             this.rbFormatText.Size = new System.Drawing.Size(46, 17);
             this.rbFormatText.TabIndex = 20;
@@ -190,7 +191,7 @@
             // 
             this.rbFormatJson.AutoSize = true;
             this.rbFormatJson.Location = new System.Drawing.Point(3, 2);
-            this.rbFormatJson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbFormatJson.Margin = new System.Windows.Forms.Padding(2);
             this.rbFormatJson.Name = "rbFormatJson";
             this.rbFormatJson.Size = new System.Drawing.Size(47, 17);
             this.rbFormatJson.TabIndex = 19;
@@ -202,7 +203,7 @@
             // 
             this.btLoadFromConnectionString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLoadFromConnectionString.Location = new System.Drawing.Point(218, 4);
-            this.btLoadFromConnectionString.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btLoadFromConnectionString.Margin = new System.Windows.Forms.Padding(2);
             this.btLoadFromConnectionString.Name = "btLoadFromConnectionString";
             this.btLoadFromConnectionString.Size = new System.Drawing.Size(155, 24);
             this.btLoadFromConnectionString.TabIndex = 16;
@@ -211,11 +212,22 @@
             this.btLoadFromConnectionString.Visible = false;
             this.btLoadFromConnectionString.Click += new System.EventHandler(this.btLoadFromConnectionString_Click);
             // 
+            // ckIgnoreSSL
+            // 
+            this.ckIgnoreSSL.AutoSize = true;
+            this.ckIgnoreSSL.Location = new System.Drawing.Point(215, 366);
+            this.ckIgnoreSSL.Name = "ckIgnoreSSL";
+            this.ckIgnoreSSL.Size = new System.Drawing.Size(79, 17);
+            this.ckIgnoreSSL.TabIndex = 17;
+            this.ckIgnoreSSL.Text = "Ignore SSL";
+            this.ckIgnoreSSL.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(393, 448);
+            this.Controls.Add(this.ckIgnoreSSL);
             this.Controls.Add(this.btLoadFromConnectionString);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtLinkGit);
@@ -261,6 +273,7 @@
         private System.Windows.Forms.RadioButton rbFormatText;
         private System.Windows.Forms.RadioButton rbFormatJson;
         private System.Windows.Forms.Button btLoadFromConnectionString;
+        private System.Windows.Forms.CheckBox ckIgnoreSSL;
     }
 }
 
